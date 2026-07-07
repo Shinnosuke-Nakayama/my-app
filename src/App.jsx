@@ -16,7 +16,7 @@ function App() {
 
   const get = async () => {
     setText((t) => "");
-    const res = await fetch("http://98.94.91.91:8080/datasummary", {
+    const res = await fetch("/datasummary", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ minutes: refText.current.value }),
@@ -36,9 +36,10 @@ function App() {
         issuesWhere: parse.issues.Where,
         issuesWhy: parse.issues.Why,
         issuesHow: parse.issues.How,
-        issuesWhat_Why: parse.issues.What_Why,
+        issuesWhatWhy: parse.issues.What_Why,
+        issuesContent: parse.issues.Content,
         providedWho: parse.provided.Who,
-        providedWhat: parse.provided.What,
+        providedWhy: parse.provided.What,
         providedOutcome: parse.provided.Outcome,
       },
       department: parse.department,
@@ -73,15 +74,15 @@ function App() {
         >
           要約実施
         </button>
-        {/* <button
+        <button
           type="button"
           className="counter"
           onClick={() => {
-            // post();
+            post();
           }}
         >
-          保存実施 column
-        </button> */}
+          保存実施
+        </button>
         <textarea name="" id="" ref={refText} rows={30} cols={120}></textarea>
         <p>{text}</p>
       </section>
